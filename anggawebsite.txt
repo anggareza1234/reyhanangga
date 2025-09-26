@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyhan AnggaReza - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+        .modal {
+            backdrop-filter: blur(5px);
+        }
+        .image-preview {
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-800/90 backdrop-blur-sm z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-400">Reyhan AnggaReza</h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-400 transition-colors">Beranda</a>
+                <a href="#about" class="hover:text-blue-400 transition-colors">Tentang</a>
+                <a href="#skills" class="hover:text-blue-400 transition-colors">Keahlian</a>
+                <a href="#projects" class="hover:text-blue-400 transition-colors">Proyek</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">Kontak</a>
+            </div>
+            <button onclick="showLoginModal()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                <i class="fas fa-user-shield mr-2"></i>Admin
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-blue-900">
+        <div class="text-center px-6">
+            <div class="mb-8">
+                <img id="profile-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%234F46E5'/%3E%3Ctext x='100' y='110' text-anchor='middle' fill='white' font-size='60' font-family='Arial'%3ERA%3C/text%3E%3C/svg%3E" alt="Reyhan AnggaReza" class="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-blue-400">
+            </div>
+            <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mb-4 fade-in">Reyhan AnggaReza</h1>
+            <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-300 mb-8 fade-in">Full Stack Developer & UI/UX Designer</p>
+            <div class="space-x-4 fade-in">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg transition-colors inline-block">Lihat Proyek</a>
+                <a href="#contact" class="border border-blue-400 hover:bg-blue-400 hover:text-gray-900 px-8 py-3 rounded-lg transition-colors inline-block">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Tentang Saya</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p id="about-text" class="text-lg text-gray-300 leading-relaxed mb-6">
+                        Saya adalah seorang Full Stack Developer dengan passion dalam menciptakan solusi digital yang inovatif. Dengan pengalaman lebih dari 3 tahun, saya telah mengembangkan berbagai aplikasi web dan mobile yang user-friendly dan efisien.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-2xl font-bold text-blue-400">50+</h3>
+                            <p class="text-gray-400">Proyek Selesai</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="text-2xl font-bold text-blue-400">3+</h3>
+                            <p class="text-gray-400">Tahun Pengalaman</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img id="about-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23374151' rx='20'/%3E%3Ccircle cx='150' cy='120' r='50' fill='%234F46E5'/%3E%3Crect x='100' y='180' width='100' height='80' fill='%236B7280' rx='10'/%3E%3Ctext x='150' y='280' text-anchor='middle' fill='%239CA3AF' font-size='14'%3EDeveloper at Work%3C/text%3E%3C/svg%3E" alt="About Image" class="w-full max-w-sm mx-auto rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Keahlian</h2>
+            <div id="skills-container" class="grid md:grid-cols-2 gap-8">
+                <!-- Skills will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Proyek Terbaru</h2>
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Hubungi Saya</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Mari Berkolaborasi</h3>
+                    <p id="contact-text" class="text-gray-300 mb-8">Saya selalu terbuka untuk proyek baru dan kolaborasi menarik. Jangan ragu untuk menghubungi saya!</p>
+                    <div id="contact-info" class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 w-6"></i>
+                            <span class="ml-3">reyhan.anggareza@email.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 w-6"></i>
+                            <span class="ml-3">+62 812-3456-7890</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-400 w-6"></i>
+                            <span class="ml-3">Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <input type="text" placeholder="Nama Anda" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Anda" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                    </div>
+                    <div>
+                        <textarea placeholder="Pesan Anda" rows="5" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg transition-colors">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 px-6 text-center">
+        <p>&copy; 2024 Reyhan AnggaReza. All rights reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black/50 modal hidden items-center justify-center z-50">
+        <div class="bg-gray-800 p-8 rounded-lg w-full max-w-md mx-4">
+            <h3 class="text-2xl font-bold mb-6 text-center">Login Admin</h3>
+            <form id="login-form">
+                <div class="mb-4">
+                    <input type="text" id="admin-username" placeholder="Username" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                </div>
+                <div class="mb-6">
+                    <input type="password" id="admin-password" placeholder="Password" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                </div>
+                <div class="flex space-x-4">
+                    <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 py-3 rounded-lg transition-colors">Login</button>
+                    <button type="button" onclick="hideLoginModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 py-3 rounded-lg transition-colors">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="fixed inset-0 bg-gray-900 z-50 hidden overflow-y-auto">
+        <div class="min-h-screen">
+            <!-- Admin Header -->
+            <div class="bg-gray-800 px-6 py-4 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-blue-400">Admin Panel</h1>
+                <button onclick="logout()" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition-colors">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
+
+            <!-- Admin Navigation -->
+            <div class="bg-gray-800 px-6 py-2 border-t border-gray-700">
+                <div class="flex space-x-6">
+                    <button onclick="showAdminSection('profile')" class="admin-nav-btn text-blue-400 border-b-2 border-blue-400 pb-2">Profil</button>
+                    <button onclick="showAdminSection('about')" class="admin-nav-btn hover:text-blue-400 pb-2">Tentang</button>
+                    <button onclick="showAdminSection('skills')" class="admin-nav-btn hover:text-blue-400 pb-2">Keahlian</button>
+                    <button onclick="showAdminSection('projects')" class="admin-nav-btn hover:text-blue-400 pb-2">Proyek</button>
+                    <button onclick="showAdminSection('contact')" class="admin-nav-btn hover:text-blue-400 pb-2">Kontak</button>
+                </div>
+            </div>
+
+            <!-- Admin Content -->
+            <div class="p-6">
+                <!-- Profile Management -->
+                <div id="admin-profile" class="admin-section">
+                    <h2 class="text-3xl font-bold mb-6">Kelola Profil</h2>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <form id="profile-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Foto Profil</label>
+                                <input type="file" id="profile-image-upload" accept="image/*" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                                <img id="profile-preview" class="mt-4 image-preview rounded-full" style="display: none;">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nama</label>
+                                <input type="text" id="profile-name" value="Reyhan AnggaReza" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Subtitle</label>
+                                <input type="text" id="profile-subtitle" value="Full Stack Developer & UI/UX Designer" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                            </div>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition-colors">Simpan Profil</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- About Management -->
+                <div id="admin-about" class="admin-section hidden">
+                    <h2 class="text-3xl font-bold mb-6">Kelola Tentang</h2>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <form id="about-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Gambar Tentang</label>
+                                <input type="file" id="about-image-upload" accept="image/*" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                                <img id="about-preview" class="mt-4 image-preview rounded-lg" style="display: none;">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Deskripsi</label>
+                                <textarea id="about-description" rows="6" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">Saya adalah seorang Full Stack Developer dengan passion dalam menciptakan solusi digital yang inovatif. Dengan pengalaman lebih dari 3 tahun, saya telah mengembangkan berbagai aplikasi web dan mobile yang user-friendly dan efisien.</textarea>
+                            </div>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition-colors">Simpan Tentang</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Skills Management -->
+                <div id="admin-skills" class="admin-section hidden">
+                    <h2 class="text-3xl font-bold mb-6">Kelola Keahlian</h2>
+                    <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                        <h3 class="text-xl font-bold mb-4">Tambah Keahlian Baru</h3>
+                        <form id="skill-form" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" id="skill-name" placeholder="Nama Keahlian" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                                <input type="number" id="skill-level" placeholder="Level (1-100)" min="1" max="100" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                            </div>
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg transition-colors">Tambah Keahlian</button>
+                        </form>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">Daftar Keahlian</h3>
+                        <div id="admin-skills-list" class="space-y-4">
+                            <!-- Skills list will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Management -->
+                <div id="admin-projects" class="admin-section hidden">
+                    <h2 class="text-3xl font-bold mb-6">Kelola Proyek</h2>
+                    <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                        <h3 class="text-xl font-bold mb-4">Tambah Proyek Baru</h3>
+                        <form id="project-form" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Gambar Proyek</label>
+                                <input type="file" id="project-image-upload" accept="image/*" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                                <img id="project-preview" class="mt-4 image-preview rounded-lg" style="display: none;">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" id="project-title" placeholder="Judul Proyek" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                                <input type="text" id="project-tech" placeholder="Teknologi (pisahkan dengan koma)" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required>
+                            </div>
+                            <textarea id="project-description" placeholder="Deskripsi Proyek" rows="3" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400" required></textarea>
+                            <input type="url" id="project-link" placeholder="Link Proyek (opsional)" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg transition-colors">Tambah Proyek</button>
+                        </form>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">Daftar Proyek</h3>
+                        <div id="admin-projects-list" class="grid md:grid-cols-2 gap-4">
+                            <!-- Projects list will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Management -->
+                <div id="admin-contact" class="admin-section hidden">
+                    <h2 class="text-3xl font-bold mb-6">Kelola Kontak</h2>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <form id="contact-info-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Deskripsi Kontak</label>
+                                <textarea id="contact-description" rows="3" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">Saya selalu terbuka untuk proyek baru dan kolaborasi menarik. Jangan ragu untuk menghubungi saya!</textarea>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="email" id="contact-email" placeholder="Email" value="reyhan.anggareza@email.com" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                                <input type="tel" id="contact-phone" placeholder="Telepon" value="+62 812-3456-7890" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                            </div>
+                            <input type="text" id="contact-address" placeholder="Alamat" value="Jakarta, Indonesia" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-400">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition-colors">Simpan Kontak</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Storage
+        let portfolioData = {
+            profile: {
+                name: 'Reyhan AnggaReza',
+                subtitle: 'Full Stack Developer & UI/UX Designer',
+                image: null
+            },
+            about: {
+                description: 'Saya adalah seorang Full Stack Developer dengan passion dalam menciptakan solusi digital yang inovatif. Dengan pengalaman lebih dari 3 tahun, saya telah mengembangkan berbagai aplikasi web dan mobile yang user-friendly dan efisien.',
+                image: null
+            },
+            skills: [
+                { name: 'JavaScript', level: 90 },
+                { name: 'React', level: 85 },
+                { name: 'Node.js', level: 80 },
+                { name: 'Python', level: 75 },
+                { name: 'UI/UX Design', level: 85 },
+                { name: 'Database Design', level: 80 }
+            ],
+            projects: [
+                {
+                    id: 1,
+                    title: 'E-Commerce Platform',
+                    description: 'Platform e-commerce modern dengan fitur lengkap',
+                    technologies: ['React', 'Node.js', 'MongoDB'],
+                    image: null,
+                    link: '#'
+                },
+                {
+                    id: 2,
+                    title: 'Task Management App',
+                    description: 'Aplikasi manajemen tugas dengan real-time collaboration',
+                    technologies: ['Vue.js', 'Express', 'Socket.io'],
+                    image: null,
+                    link: '#'
+                },
+                {
+                    id: 3,
+                    title: 'Portfolio Website',
+                    description: 'Website portfolio responsif dengan admin panel',
+                    technologies: ['HTML', 'CSS', 'JavaScript'],
+                    image: null,
+                    link: '#'
+                }
+            ],
+            contact: {
+                description: 'Saya selalu terbuka untuk proyek baru dan kolaborasi menarik. Jangan ragu untuk menghubungi saya!',
+                email: 'reyhan.anggareza@email.com',
+                phone: '+62 812-3456-7890',
+                address: 'Jakarta, Indonesia'
+            }
+        };
+
+        // Authentication
+        const adminCredentials = {
+            username: 'admin',
+            password: 'admin123'
+        };
+
+        let isLoggedIn = false;
+
+        // Utility Functions
+        function showLoginModal() {
+            document.getElementById('login-modal').classList.remove('hidden');
+            document.getElementById('login-modal').classList.add('flex');
+        }
+
+        function hideLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+            document.getElementById('login-modal').classList.remove('flex');
+        }
+
+        function showAdminPanel() {
+            document.getElementById('admin-panel').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideAdminPanel() {
+            document.getElementById('admin-panel').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showAdminSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.admin-section').forEach(el => el.classList.add('hidden'));
+            // Show selected section
+            document.getElementById(`admin-${section}`).classList.remove('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('.admin-nav-btn').forEach(btn => {
+                btn.classList.remove('text-blue-400', 'border-b-2', 'border-blue-400');
+                btn.classList.add('hover:text-blue-400');
+            });
+            event.target.classList.add('text-blue-400', 'border-b-2', 'border-blue-400');
+            event.target.classList.remove('hover:text-blue-400');
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            hideAdminPanel();
+        }
+
+        // Image Upload Handler
+        function handleImageUpload(inputId, previewId, callback) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+            
+            input.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const imageData = e.target.result;
+                        preview.src = imageData;
+                        preview.style.display = 'block';
+                        if (callback) callback(imageData);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Initialize Image Uploads
+        function initializeImageUploads() {
+            handleImageUpload('profile-image-upload', 'profile-preview');
+            handleImageUpload('about-image-upload', 'about-preview');
+            handleImageUpload('project-image-upload', 'project-preview');
+        }
+
+        // Render Functions
+        function renderSkills() {
+            const container = document.getElementById('skills-container');
+            const adminContainer = document.getElementById('admin-skills-list');
+            
+            container.innerHTML = '';
+            adminContainer.innerHTML = '';
+            
+            portfolioData.skills.forEach((skill, index) => {
+                // Frontend display
+                const skillElement = document.createElement('div');
+                skillElement.className = 'mb-6';
+                skillElement.innerHTML = `
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">${skill.name}</span>
+                        <span class="text-blue-400">${skill.level}%</span>
+                    </div>
+                    <div class="bg-gray-700 rounded-full h-3">
+                        <div class="bg-blue-600 h-3 rounded-full skill-bar" style="width: ${skill.level}%"></div>
+                    </div>
+                `;
+                container.appendChild(skillElement);
+                
+                // Admin display
+                const adminElement = document.createElement('div');
+                adminElement.className = 'flex items-center justify-between bg-gray-700 p-4 rounded-lg';
+                adminElement.innerHTML = `
+                    <div>
+                        <span class="font-medium">${skill.name}</span>
+                        <span class="text-blue-400 ml-2">${skill.level}%</span>
+                    </div>
+                    <button onclick="removeSkill(${index})" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm transition-colors">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                adminContainer.appendChild(adminElement);
+            });
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projects-container');
+            const adminContainer = document.getElementById('admin-projects-list');
+            
+            container.innerHTML = '';
+            adminContainer.innerHTML = '';
+            
+            portfolioData.projects.forEach((project, index) => {
+                // Frontend display
+                const projectElement = document.createElement('div');
+                projectElement.className = 'bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform';
+                projectElement.innerHTML = `
+                    <img src="${project.image || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%234F46E5'/%3E%3Ctext x='200' y='130' text-anchor='middle' fill='white' font-size='24'%3E${project.title}%3C/text%3E%3C/svg%3E`}" alt="${project.title}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                        <p class="text-gray-300 mb-4">${project.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${project.technologies.map(tech => `<span class="bg-blue-600 text-xs px-2 py-1 rounded">${tech}</span>`).join('')}
+                        </div>
+                        ${project.link && project.link !== '#' ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors">Lihat Proyek <i class="fas fa-external-link-alt ml-1"></i></a>` : ''}
+                    </div>
+                `;
+                container.appendChild(projectElement);
+                
+                // Admin display
+                const adminElement = document.createElement('div');
+                adminElement.className = 'bg-gray-700 rounded-lg p-4';
+                adminElement.innerHTML = `
+                    <img src="${project.image || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120' viewBox='0 0 200 120'%3E%3Crect width='200' height='120' fill='%234F46E5'/%3E%3Ctext x='100' y='65' text-anchor='middle' fill='white' font-size='12'%3E${project.title}%3C/text%3E%3C/svg%3E`}" alt="${project.title}" class="w-full h-24 object-cover rounded mb-3">
+                    <h4 class="font-bold mb-2">${project.title}</h4>
+                    <p class="text-sm text-gray-300 mb-3">${project.description}</p>
+                    <button onclick="removeProject(${index})" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm transition-colors w-full">
+                        <i class="fas fa-trash mr-1"></i>Hapus
+                    </button>
+                `;
+                adminContainer.appendChild(adminElement);
+            });
+        }
+
+        function updateContactInfo() {
+            document.getElementById('contact-text').textContent = portfolioData.contact.description;
+            
+            const contactInfo = document.getElementById('contact-info');
+            contactInfo.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-envelope text-blue-400 w-6"></i>
+                    <span class="ml-3">${portfolioData.contact.email}</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-phone text-blue-400 w-6"></i>
+                    <span class="ml-3">${portfolioData.contact.phone}</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-map-marker-alt text-blue-400 w-6"></i>
+                    <span class="ml-3">${portfolioData.contact.address}</span>
+                </div>
+            `;
+        }
+
+        // CRUD Functions
+        function removeSkill(index) {
+            portfolioData.skills.splice(index, 1);
+            renderSkills();
+        }
+
+        function removeProject(index) {
+            portfolioData.projects.splice(index, 1);
+            renderProjects();
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize
+            renderSkills();
+            renderProjects();
+            updateContactInfo();
+            initializeImageUploads();
+
+            // Login Form
+            document.getElementById('login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('admin-username').value;
+                const password = document.getElementById('admin-password').value;
+                
+                if (username === adminCredentials.username && password === adminCredentials.password) {
+                    isLoggedIn = true;
+                    hideLoginModal();
+                    showAdminPanel();
+                    // Clear form
+                    document.getElementById('admin-username').value = '';
+                    document.getElementById('admin-password').value = '';
+                } else {
+                    alert('Username atau password salah!');
+                }
+            });
+
+            // Profile Form
+            document.getElementById('profile-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('profile-name').value;
+                const subtitle = document.getElementById('profile-subtitle').value;
+                const imageFile = document.getElementById('profile-image-upload').files[0];
+                
+                portfolioData.profile.name = name;
+                portfolioData.profile.subtitle = subtitle;
+                
+                if (imageFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        portfolioData.profile.image = e.target.result;
+                        document.getElementById('profile-image').src = e.target.result;
+                    };
+                    reader.readAsDataURL(imageFile);
+                }
+                
+                document.getElementById('hero-title').textContent = name;
+                document.getElementById('hero-subtitle').textContent = subtitle;
+                
+                alert('Profil berhasil diperbarui!');
+            });
+
+            // About Form
+            document.getElementById('about-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const description = document.getElementById('about-description').value;
+                const imageFile = document.getElementById('about-image-upload').files[0];
+                
+                portfolioData.about.description = description;
+                
+                if (imageFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        portfolioData.about.image = e.target.result;
+                        document.getElementById('about-image').src = e.target.result;
+                    };
+                    reader.readAsDataURL(imageFile);
+                }
+                
+                document.getElementById('about-text').textContent = description;
+                
+                alert('Informasi tentang berhasil diperbarui!');
+            });
+
+            // Skill Form
+            document.getElementById('skill-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('skill-name').value;
+                const level = parseInt(document.getElementById('skill-level').value);
+                
+                portfolioData.skills.push({ name, level });
+                renderSkills();
+                
+                // Clear form
+                document.getElementById('skill-name').value = '';
+                document.getElementById('skill-level').value = '';
+                
+                alert('Keahlian berhasil ditambahkan!');
+            });
+
+            // Project Form
+            document.getElementById('project-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const title = document.getElementById('project-title').value;
+                const description = document.getElementById('project-description').value;
+                const tech = document.getElementById('project-tech').value.split(',').map(t => t.trim());
+                const link = document.getElementById('project-link').value;
+                const imageFile = document.getElementById('project-image-upload').files[0];
+                
+                const newProject = {
+                    id: Date.now(),
+                    title,
+                    description,
+                    technologies: tech,
+                    link: link || '#',
+                    image: null
+                };
+                
+                if (imageFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        newProject.image = e.target.result;
+                        portfolioData.projects.push(newProject);
+                        renderProjects();
+                    };
+                    reader.readAsDataURL(imageFile);
+                } else {
+                    portfolioData.projects.push(newProject);
+                    renderProjects();
+                }
+                
+                // Clear form
+                document.getElementById('project-title').value = '';
+                document.getElementById('project-description').value = '';
+                document.getElementById('project-tech').value = '';
+                document.getElementById('project-link').value = '';
+                document.getElementById('project-image-upload').value = '';
+                document.getElementById('project-preview').style.display = 'none';
+                
+                alert('Proyek berhasil ditambahkan!');
+            });
+
+            // Contact Form
+            document.getElementById('contact-info-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const description = document.getElementById('contact-description').value;
+                const email = document.getElementById('contact-email').value;
+                const phone = document.getElementById('contact-phone').value;
+                const address = document.getElementById('contact-address').value;
+                
+                portfolioData.contact = { description, email, phone, address };
+                updateContactInfo();
+                
+                alert('Informasi kontak berhasil diperbarui!');
+            });
+
+            // Contact Form (Frontend)
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Terima kasih! Pesan Anda telah dikirim.');
+                this.reset();
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984f17dd033afcef',t:'MTc1ODg1MTI0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
